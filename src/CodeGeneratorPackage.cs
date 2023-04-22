@@ -24,7 +24,7 @@ namespace CleanArchitecture.CodeGenerator
 	[PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
 	[InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)]
 	[ProvideMenuResource("Menus.ctmenu", 1)]
-	[Guid(PackageGuids.guidCodeGeneratorPkgString)]
+	[Guid(PackageGuids.cleanArchitectureCodeGeneratorPkgString)]
 	public sealed class CodeGeneratorPackage : AsyncPackage
 	{
 		private const string _solutionItemsProjectName = "Solution Items";
@@ -33,7 +33,7 @@ namespace CleanArchitecture.CodeGenerator
 
 		public static DTE2 _dte;
 
-		protected async override System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
+		protected async override Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
 		{
 			await JoinableTaskFactory.SwitchToMainThreadAsync();
 
@@ -44,18 +44,18 @@ namespace CleanArchitecture.CodeGenerator
 
 			if (await GetServiceAsync(typeof(IMenuCommandService)) is OleMenuCommandService mcs)
 			{
-				CommandID menuCommandID = new CommandID(PackageGuids.guidCodeGeneratorCmdSet, PackageIds.cmdidMyCommand);
-				OleMenuCommand menuItem = new OleMenuCommand(ExecuteAsync, menuCommandID);
+				CommandID menuCommandID = new CommandID(PackageGuids.cleanArchitectureCodeGeneratorCmdSet, PackageIds.cmdidMyCommand);
+				OleMenuCommand menuItem = new OleMenuCommand(Execute, menuCommandID);
 				mcs.AddCommand(menuItem);
 			}
 		}
 
-		private void ExecuteAsync(object sender, EventArgs e)
+		private void Execute(object sender, EventArgs e)
 		{
 			NewItemTarget target = NewItemTarget.Create(_dte);
 			NewItemTarget domain= NewItemTarget.Create(_dte,"Domain");
 			NewItemTarget infrastructure = NewItemTarget.Create(_dte, "Infrastructure");
-			NewItemTarget ui = NewItemTarget.Create(_dte, "Blazor.Server.UI");
+			//NewItemTarget ui = NewItemTarget.Create(_dte, "Blazor.Server.UI");
 			var includes = new string[] { "IEntity", "BaseEntity", "BaseAuditableEntity", "BaseAuditableSoftDeleteEntity", "AuditTrail", "OwnerPropertyEntity" };
 			var objectlist = ProjectHelpers.GetEntities(domain.Project)
 				.Where(x => includes.Contains(x.BaseName) && !includes.Contains(x.Name));
@@ -130,16 +130,16 @@ namespace CleanArchitecture.CodeGenerator
 						AddItemAsync(objectClass,item, name, target).Forget();
 					}
 
-					var pages = new List<string>()
-					{
-						$"Pages/{nameofPlural}/{nameofPlural}.razor",
-						$"Pages/{nameofPlural}/_{name}FormDialog.razor",
-						$"Pages/{nameofPlural}/Components/{nameofPlural}AdvancedSearchComponent.razor"
-					};
-					foreach (var item in pages)
-					{
-						AddItemAsync(objectClass,item, name, ui).Forget();
-					}
+					//var pages = new List<string>()
+					//{
+					//	$"Pages/{nameofPlural}/{nameofPlural}.razor",
+					//	$"Pages/{nameofPlural}/_{name}FormDialog.razor",
+					//	$"Pages/{nameofPlural}/Components/{nameofPlural}AdvancedSearchComponent.razor"
+					//};
+					//foreach (var item in pages)
+					//{
+					//	AddItemAsync(objectClass,item, name, ui).Forget();
+					//}
 
 				}
 				catch (Exception ex) when (!ErrorHandler.IsCriticalException(ex))

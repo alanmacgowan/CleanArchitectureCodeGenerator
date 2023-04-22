@@ -4,41 +4,36 @@
     <Extern href="stdidcmd.h"/>
     <Extern href="vsshlids.h"/>
 
-    <Commands package="guidCodeGeneratorPkg">
+
+    <Commands package="cleanArchitectureCodeGeneratorPkg">              
         <Buttons>
-            <Button guid="guidCodeGeneratorCmdSet" id="cmdidMyCommand" priority="0x0200" type="Button">
+            <Button guid="cleanArchitectureCodeGeneratorCmdSet" id="cmdidMyCommand" priority="0x0200" type="Button">
                 <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_ADD_ITEMS"/>
                 <CommandFlag>DynamicVisibility</CommandFlag>
                 <Strings>
-                    <CommandName>AddFeaturesClassFile</CommandName>
-                    <ButtonText>New Application Features...</ButtonText>
+                    <CommandName>AddFeaturesClassFile </CommandName>
+                    <ButtonText>Generate Code...</ButtonText>
                 </Strings>
             </Button>
         </Buttons>
     </Commands>
 
     <CommandPlacements>
-        <!--
-        <CommandPlacement guid="guidCodeGeneratorCmdSet" id="cmdidMyCommand" priority="0x0200">
-            <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_ADD_ITEM"/>
-        </CommandPlacement>
-        -->
-
-        <CommandPlacement guid="guidCodeGeneratorCmdSet" id="cmdidMyCommand" priority="0x0200">
+        <CommandPlacement guid="cleanArchitectureCodeGeneratorCmdSet" id="cmdidMyCommand" priority="0x0200">
             <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SLNFLDR_ADD_ITEM"/>
         </CommandPlacement>
     </CommandPlacements>
 
     <KeyBindings>
-        <KeyBinding guid="guidCodeGeneratorCmdSet" id="cmdidMyCommand" mod1="Shift" key1="VK_F2" editor="guidVSStd97"/>
+        <KeyBinding guid="cleanArchitectureCodeGeneratorCmdSet" id="cmdidMyCommand" mod1="Shift" key1="VK_F2" editor="guidVSStd97"/>
     </KeyBindings>
 
     <Symbols>
         <!-- This is the package guid. -->
-        <GuidSymbol name="guidCodeGeneratorPkg" value="{da3d4428-7855-4b22-a0e6-a7b9a6c7aa5e}" />
-
+        <GuidSymbol name="cleanArchitectureCodeGeneratorPkg" value="{da3d4428-7855-4b22-a0e6-a7b9a6c7aa5e}" />
+        
         <!-- This is the guid used to group the menu commands together -->
-        <GuidSymbol name="guidCodeGeneratorCmdSet" value="{4c7a4f97-2988-45ec-af7c-8984fc72c5e1}">
+        <GuidSymbol name="cleanArchitectureCodeGeneratorCmdSet" value="{4c7a4f97-2988-45ec-af7c-8984fc72c5e1}">
             <IDSymbol name="cmdidMyCommand" value="0x0100" />
         </GuidSymbol>
     </Symbols>

@@ -21,6 +21,7 @@
         <Button Grid.Row="0" IsEnabled="False" Grid.Column="2" Content="Create code" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Center" Width="85" Height="23" IsDefault="True" Name="btnCreate" Click="Button_Click" />
 
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Name="lblTips" Content="Tips" HorizontalAlignment="Left" Margin="5,0" VerticalAlignment="Bottom" Height="26" />
-        
+        <Label Grid.Column="1" Content="Select entity and path." HorizontalAlignment="Left" VerticalAlignment="Top" Width="189" FontSize="8" FontWeight="Bold" FontStyle="Italic" Margin="0,10,0,0"/>
+
     </Grid>
 </Window>

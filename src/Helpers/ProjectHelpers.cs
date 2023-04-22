@@ -181,6 +181,7 @@ namespace CleanArchitecture.CodeGenerator.Helpers
 					.Where(p => p.Name == name)
 					.FirstOrDefault();
 		}
+
 		public static Project FindProject(this Solution solution, string name)
 		{
 			var list= solution.Projects.OfType<Project>()
@@ -195,9 +196,7 @@ namespace CleanArchitecture.CodeGenerator.Helpers
 				throw new Exception($"Project {name} not found in solution");
 			}
 
-			return project;
-
-			
+			return project;		
 		}
 
 		private static Project GetProject(IEnumerable<Project> projects, string name)
