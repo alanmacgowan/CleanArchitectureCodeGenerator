@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <Extern href="stdidcmd.h"/>
+
+    <Extern href="vsshlids.h"/>
+    
+    <Include href="KnownImageIds.vsct"/>
+    
+    <Commands package="guidCleanCodeGeneratorPackage">
+        <Buttons>
+            <Button guid="guidCleanCodeGeneratorPackageCmdSet" id="ItemsSelectorWindowCommandId" priority="0x0100" type="Button">
+                <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1"/>
+                <Icon guid="ImageCatalogGuid" id="AddComponent" />
+                <CommandFlag>IconIsMoniker</CommandFlag>
+                <Strings>
+                    <ButtonText>Clean Code Generator</ButtonText>
+                </Strings>
+            </Button>
+        </Buttons>
+    </Commands>
+
+    <KeyBindings>
+        <KeyBinding guid="guidCleanCodeGeneratorPackageCmdSet" id="ItemsSelectorWindowCommandId" editor="guidVSStd97" key1="VK_F2" mod1="Shift">
+        </KeyBinding>
+    </KeyBindings>
+    
+    <Symbols>
+        <GuidSymbol name="guidCleanCodeGeneratorPackage" value="{5958e231-12e3-454c-9bed-7b1caf69c5ac}" />
+
+        <GuidSymbol name="guidCleanCodeGeneratorPackageCmdSet" value="{1be5d7ed-3261-4fdf-be1b-8986b14f5a84}">
+            <IDSymbol name="ItemsSelectorWindowCommandId" value="0x0100" />
+        </GuidSymbol>
+
+    </Symbols>
+</CommandTable>
