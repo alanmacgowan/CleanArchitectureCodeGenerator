@@ -5,7 +5,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace CleanCodeGenerator
 {
-	internal sealed class ItemsSelectorWindowCommand 
+	internal sealed class ItemsSelectorWindowCommand
 	{
 		public const int CommandId = 0x0100;
 
