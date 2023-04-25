@@ -9,7 +9,7 @@ namespace CodeGenerator
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
-    [ProvideToolWindow(typeof(MyToolWindow.Pane), Orientation = ToolWindowOrientation.Left, Style = VsDockStyle.Tabbed)]
+    [ProvideToolWindow(typeof(MainToolWindow.Pane), Orientation = ToolWindowOrientation.Left, Style = VsDockStyle.Tabbed)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(PackageGuids.CodeGeneratorString)]
     public sealed class CodeGeneratorPackage : ToolkitPackage
